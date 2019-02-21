@@ -4,7 +4,7 @@
   "description": "Node.js server with express framework using GraphQl",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Mackignacio/grapgql-node-express#readme",
   "devDependencies": {
+    "jest": "^24.1.0",
     "tslint": "^5.12.1",
     "typescript": "^3.3.3"
   },
