@@ -1,0 +1,24 @@
+{
+  "name": "graphql-node-express",
+  "version": "1.0.0",
+  "description": "Node.js server with express framework using GraphQl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Mackignacio/grapgql-node-express.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "graphql"
+  ],
+  "author": "Mark Anthony C. Ignacio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mackignacio/grapgql-node-express/issues"
+  },
+  "homepage": "https://github.com/Mackignacio/grapgql-node-express#readme"
+}
