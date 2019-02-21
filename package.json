@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/Mackignacio/grapgql-node-express/issues"
   },
-  "homepage": "https://github.com/Mackignacio/grapgql-node-express#readme"
+  "homepage": "https://github.com/Mackignacio/grapgql-node-express#readme",
+  "devDependencies": {
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  }
 }
