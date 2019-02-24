@@ -19,9 +19,9 @@
   "author": "Mark Anthony C. Ignacio",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Mackignacio/grapgql-node-express/issues"
+    "url": "https://github.com/Mackignacio/graphql-node-express/issues"
   },
-  "homepage": "https://github.com/Mackignacio/grapgql-node-express#readme",
+  "homepage": "https://github.com/Mackignacio/graphql-node-express#readme",
   "devDependencies": {
     "@types/jest": "^24.0.6",
     "jest": "^24.1.0",
