@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Mackignacio/graphql-node-express#readme",
   "devDependencies": {
+    "@types/express": "^4.16.1",
     "@types/jest": "^24.0.6",
     "jest": "^24.1.0",
     "lodash": "^4.17.11",
