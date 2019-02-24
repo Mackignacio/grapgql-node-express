@@ -1,4 +1,6 @@
 import { app } from "./index";
+import { load } from "dotenv";
+load();
 
 const PORT = process.env.PORT || 5000;
 
