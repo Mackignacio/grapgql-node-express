@@ -1,7 +1,7 @@
-const books = [
-  { name: "Name of the Wind", genre: "Fantasy", id: "1" },
-  { name: "The Final Empire", genre: "Fantasy", id: "2" },
-  { name: "The Long Earth", genre: "Sci-Fi", id: "3" },
+const users = [
+  { name: "Mack Ignacio", account_type: "admin", id: "1" },
+  { name: "Ralph Largo", account_type: "user", id: "2" },
+  { name: "Nemuel Lim", account_type: "user", id: "3" },
 ];
 
-export { books };
+export { users };
