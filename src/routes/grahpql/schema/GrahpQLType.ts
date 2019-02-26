@@ -1,12 +1,12 @@
 import { GraphQLObjectType, GraphQLString } from "graphql";
 
-const BookType = new GraphQLObjectType({
+const UserType = new GraphQLObjectType({
   name: "Book",
   fields: () => ({
     id: { type: GraphQLString },
     name: { type: GraphQLString },
-    genre: { type: GraphQLString },
+    account_type: { type: GraphQLString },
   }),
 });
 
-export { BookType };
+export { UserType };

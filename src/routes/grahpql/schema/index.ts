@@ -1,12 +1,12 @@
 import { GraphQLObjectType, GraphQLString, GraphQLSchema } from "graphql";
 import { findBooks } from "./BookType";
-import { BookType } from "./GrahpQLType";
+import { UserType } from "./GrahpQLType";
 
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
-    book: {
-      type: BookType,
+    user: {
+      type: UserType,
       args: {
         id: { type: GraphQLString },
       },
