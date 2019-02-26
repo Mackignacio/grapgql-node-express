@@ -1,7 +1,7 @@
 import { GraphQLObjectType, GraphQLString } from "graphql";
 
 const UserType = new GraphQLObjectType({
-  name: "Book",
+  name: "User",
   fields: () => ({
     id: { type: GraphQLString },
     name: { type: GraphQLString },
