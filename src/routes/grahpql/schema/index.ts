@@ -1,5 +1,5 @@
 import { GraphQLObjectType, GraphQLString, GraphQLSchema } from "graphql";
-import { findBooks } from "./BookType";
+import { findBooks } from "./UserType";
 import { UserType } from "./GrahpQLType";
 
 const RootQuery = new GraphQLObjectType({
