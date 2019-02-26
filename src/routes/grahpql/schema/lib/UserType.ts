@@ -1,4 +1,4 @@
-import { users } from "../mock";
+import { users } from "../../mock";
 import _ from "lodash";
 
 const findBooks = (id: any) => {
