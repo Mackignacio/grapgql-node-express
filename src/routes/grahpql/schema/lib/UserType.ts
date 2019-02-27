@@ -1,18 +1,18 @@
-import { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLInt } from "graphql";
+import { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } from "graphql";
 import { ProductType, findProduct } from "./GrahpQLType";
-import { users } from "../../mock";
+import { users_data } from "../../mock";
 import _ from "lodash";
 
 const findUser = (id: any) => {
-  return _.find(users, { id });
+  return _.find(users_data, { id });
 };
 
 const findUsers = (id: any) => {
-  return _.filter(users, { id });
+  return _.filter(users_data, { id });
 };
 
 const findUsersProducts = (product_id: any) => {
-  return _.filter(users, { product_id });
+  return _.filter(users_data, { product_id });
 };
 
 const UserType: GraphQLObjectType = new GraphQLObjectType({
@@ -40,4 +40,11 @@ const user = {
   },
 };
 
-export { UserType, user, findUser, findUsers, findUsersProducts };
+const users = {
+  type: new GraphQLList(UserType),
+  resolve(parents: any, args: any) {
+    return users_data;
+  },
+};
+
+export { UserType, user, users, findUser, findUsers, findUsersProducts };
