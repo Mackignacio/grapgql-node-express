@@ -4,4 +4,6 @@ const users = [
   { name: "Nemuel Lim", account_type: "user", id: "3" },
 ];
 
-export { users };
+const products = [{ name: "Websites", price: 100, id: "1" }, { name: "Mobile App", price: 250, id: "2" }, { name: "Desktop App", price: 150, id: "3" }];
+
+export { users, products };
