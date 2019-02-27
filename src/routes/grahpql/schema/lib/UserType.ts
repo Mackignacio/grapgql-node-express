@@ -7,7 +7,11 @@ const findUser = (id: any) => {
   return _.find(users, { id });
 };
 
-const UserType = new GraphQLObjectType({
+const findUsers = (id: any) => {
+  return _.filter(users, { id });
+};
+
+const UserType: GraphQLObjectType = new GraphQLObjectType({
   name: "User",
   fields: () => ({
     id: { type: GraphQLID },
@@ -32,4 +36,4 @@ const user = {
   },
 };
 
-export { UserType, user, findUser };
+export { UserType, user, findUser, findUsers };
