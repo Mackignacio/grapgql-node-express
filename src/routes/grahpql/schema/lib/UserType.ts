@@ -1,8 +1,8 @@
 import { users } from "../../mock";
 import _ from "lodash";
 
-const findBooks = (id: any) => {
+const findBook = (id: any) => {
   return _.find(users, { id });
 };
 
-export { findBooks };
+export { findBook };
