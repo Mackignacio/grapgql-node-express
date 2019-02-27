@@ -1,5 +1,5 @@
-import { GraphQLObjectType, GraphQLString, GraphQLSchema } from "graphql";
-import { findBooks } from "./lib/UserType";
+import { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID } from "graphql";
+import { findBook } from "./lib/UserType";
 import { UserType } from "./lib/GrahpQLType";
 
 const RootQuery = new GraphQLObjectType({
@@ -8,10 +8,10 @@ const RootQuery = new GraphQLObjectType({
     user: {
       type: UserType,
       args: {
-        id: { type: GraphQLString },
+        id: { type: GraphQLID },
       },
       resolve(parents, args) {
-        return findBooks(args.id);
+        return findBook(args.id);
       },
     },
   },
