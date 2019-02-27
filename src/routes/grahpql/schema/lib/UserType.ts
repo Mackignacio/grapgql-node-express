@@ -1,5 +1,6 @@
-import { users } from "../../mock";
 import { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLInt } from "graphql";
+import { ProductType, findProduct } from "./GrahpQLType";
+import { users } from "../../mock";
 import _ from "lodash";
 
 const findUser = (id: any) => {
@@ -12,6 +13,12 @@ const UserType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     account_type: { type: GraphQLString },
+    product: {
+      type: ProductType,
+      resolve(parent: any, args: any) {
+        return findProduct(parent.product_id);
+      },
+    },
   }),
 });
 
@@ -25,4 +32,4 @@ const user = {
   },
 };
 
-export { user, findUser };
+export { UserType, user, findUser };

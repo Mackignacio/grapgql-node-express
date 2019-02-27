@@ -1,5 +1,5 @@
-import { products } from "../../mock";
 import { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLInt } from "graphql";
+import { products } from "../../mock";
 import _ from "lodash";
 
 const findProduct = (id: any) => {
@@ -25,4 +25,4 @@ const product = {
   },
 };
 
-export { product, findProduct };
+export { ProductType, product, findProduct };
