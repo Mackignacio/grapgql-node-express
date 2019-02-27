@@ -21,7 +21,7 @@ const UserType: GraphQLObjectType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     account_type: { type: GraphQLString },
-    product: {
+    products: {
       type: ProductType,
       resolve(parent: any, args: any) {
         return findProduct(parent.product_id);
