@@ -1,5 +1,5 @@
 import { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLInt, GraphQLList } from "graphql";
-import { UserType, findUsers } from "./GrahpQLType";
+import { UserType, findUsers, findUsersProducts } from "./GrahpQLType";
 import { products } from "../../mock";
 import _ from "lodash";
 
@@ -16,7 +16,7 @@ const ProductType: GraphQLObjectType = new GraphQLObjectType({
     users: {
       type: new GraphQLList(UserType),
       resolve(parent: any, args: any) {
-        return findUsers(parent.id);
+        return findUsersProducts(parent.id);
       },
     },
   }),
