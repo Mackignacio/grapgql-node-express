@@ -1,4 +1,4 @@
-import { findUser, findUsersProducts } from "../../../src/routes/grahpql/schema/lib/GrahpQLType";
+import { findUser, findUsers, findUsersProducts } from "../../../src/routes/grahpql/schema/lib/GrahpQLType";
 import { connect, connection } from "mongoose";
 import { load } from "dotenv";
 import { ObjectID } from "mongodb";
@@ -41,4 +41,9 @@ test("Find all user by product_id", async () => {
   users = await findUsersProducts("");
   expect(users).toHaveLength(0);
   expect(users).toEqual([]);
+});
+
+test("Find all user", async () => {
+  const users = await findUsers();
+  expect(users).toHaveLength(6);
 });
