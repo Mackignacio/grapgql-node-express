@@ -7,14 +7,19 @@ jobs:
     environment:
       - MONGO_URL: "mongodb://localhost:27017/test"
     steps:
+      # Dependecies.
+      - run:
+          name: Install MongoDB Shell 3.0 for Ubuntu Trusty
+          command: |
+            sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+            echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/3.6 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+            sudo apt-get update
+            sudo apt-get install -y --force-yes mongodb-org-shell=3.6.10
       # Config
       - run:
           name: Configure MongoDB
           command: |
-            mongo admin --eval 'use test'
-            mongo admin --eval 'db.users.insertMany( [{ item: "card", qty: 15 },{ item: "envelope", qty: 20 },{ item: "stamps" , qty: 30 }])'
-            mongo admin --eval 'show dbs'
-      # mongo admin --eval 'db.createUser({ user: "admin", pwd: "admin", roles: [{ role: "userAdminAnyDatabase", db: "admin" }]})'
+            mongo test --eval 'db.users.insertMany( [{ item: "card", qty: 15 },{ item: "envelope", qty: 20 },{ item: "stamps" , qty: 30 }])'
       # Git
       - checkout
       - run: npm install
