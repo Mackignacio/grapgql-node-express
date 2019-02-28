@@ -18,6 +18,10 @@ const UserSchema = new Schema(
       type: String,
       required: [true, "Price is required."],
     },
+    product_id: {
+      type: Schema.Types.ObjectId,
+      required: [true, "Product ID is required."],
+    },
   },
   SchemaOptions
 );
