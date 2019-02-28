@@ -7,7 +7,11 @@ import _ from "lodash";
 const model = models["products"];
 
 const findProduct = async (id: any) => {
-  return await model.findById(id);
+  try {
+    return await model.findById(id);
+  } catch (error) {
+    return [];
+  }
 };
 
 const ProductType: GraphQLObjectType = new GraphQLObjectType({
