@@ -19,7 +19,8 @@ jobs:
       - run:
           name: Configure MongoDB
           command: |
-            mongo test --eval 'db.users.insertMany( [{ item: "card", qty: 15 },{ item: "envelope", qty: 20 },{ item: "stamps" , qty: 30 }])'
+            mongo test --eval 'db.users.insertMany([{_id:new ObjectId("5c7791071c9d440000ea133b"),name:"Mack Ignacio",account_type:"admin",product_id:new ObjectId("5c77918b1c9d440000ea133c")},{_id:new ObjectId("5c77ab251c9d440000fd020d"),name:"Ralph Largo",account_type:"user",product_id:new ObjectId("5c77ac521c9d440000fd0212")},{_id:new ObjectId("5c77ab4e1c9d440000fd020e"),name:"Nemuel Lim",account_type:"user",product_id:new ObjectId("5c77918b1c9d440000ea133c")},{_id:new ObjectId("5c77aba31c9d440000fd020f"),name:"Bill Gates",account_type:"user",product_id:new ObjectId("5c77ac8e1c9d440000fd0213")},{_id:new ObjectId("5c77abc21c9d440000fd0210"),name:"Steve Jobs",account_type:"admin",product_id:new ObjectId("5c77ac8e1c9d440000fd0213")},{_id:new ObjectId("5c77abd21c9d440000fd0211"),name:"Allan Turing",account_type:"admin",product_id:new ObjectId("5c77ac8e1c9d440000fd0213")}])'
+            mongo test --eval 'db.products.insertMany([{_id:new ObjectId("5c77918b1c9d440000ea133c"),name:"Websites",price:100},{_id:new ObjectId("5c77ac521c9d440000fd0212"),name:"Mobile App",price:250},{_id:new ObjectId("5c77ac8e1c9d440000fd0213"),name:"Desktop App",price:150}])'
       # Git
       - checkout
       - run: npm install
