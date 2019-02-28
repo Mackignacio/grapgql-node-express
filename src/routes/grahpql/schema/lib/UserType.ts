@@ -3,15 +3,15 @@ import { ProductType, findProduct } from "./GrahpQLType";
 import { users_data } from "../../mock";
 import _ from "lodash";
 
-const findUser = (id: any) => {
+const findUser = (id: string) => {
   return _.find(users_data, { id });
 };
 
-const findUsers = (id: any) => {
+const findUsers = (id: string) => {
   return _.filter(users_data, { id });
 };
 
-const findUsersProducts = (product_id: any) => {
+const findUsersProducts = (product_id: string) => {
   return _.filter(users_data, { product_id });
 };
 
