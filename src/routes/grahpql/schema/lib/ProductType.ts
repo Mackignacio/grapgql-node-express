@@ -1,6 +1,5 @@
 import { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLInt, GraphQLList } from "graphql";
 import { UserType, findUsers, findUsersProducts } from "./GrahpQLType";
-import { products_data } from "../../mock";
 import models from "../../../../models";
 import _ from "lodash";
 
@@ -12,6 +11,10 @@ const findProduct = async (id: any) => {
   } catch (error) {
     return [];
   }
+};
+
+const findProducts = async () => {
+  return await model.find({});
 };
 
 const ProductType: GraphQLObjectType = new GraphQLObjectType({
@@ -42,7 +45,7 @@ const product = {
 const products = {
   type: new GraphQLList(ProductType),
   resolve(parents: any, args: any) {
-    return products_data;
+    return findProducts();
   },
 };
 
