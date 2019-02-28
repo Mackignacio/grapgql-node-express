@@ -3,7 +3,26 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.15.1
+      - image: circleci/mongo:3.6.10-stretch-ram
+    environment:
+      - MONGO_URL: "mongodb://localhost:27017/test"
     steps:
+      # Dependecies.
+      - run:
+          name: Install MongoDB Shell 3.0 for Ubuntu Trusty
+          command: |
+            sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+            echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/3.6 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+            sudo apt-get update
+            sudo apt-get install -y --force-yes mongodb-org-shell=3.6.10
+      # Config
+      - run:
+          name: Configure MongoDB
+          command: |
+            mongo test --eval 'db.users.insertMany([{_id:new ObjectId("5c7791071c9d440000ea133b"),name:"Mack Ignacio",account_type:"admin",product_id:new ObjectId("5c77918b1c9d440000ea133c")},{_id:new ObjectId("5c77ab251c9d440000fd020d"),name:"Ralph Largo",account_type:"user",product_id:new ObjectId("5c77ac521c9d440000fd0212")},{_id:new ObjectId("5c77ab4e1c9d440000fd020e"),name:"Nemuel Lim",account_type:"user",product_id:new ObjectId("5c77918b1c9d440000ea133c")},{_id:new ObjectId("5c77aba31c9d440000fd020f"),name:"Bill Gates",account_type:"user",product_id:new ObjectId("5c77ac8e1c9d440000fd0213")},{_id:new ObjectId("5c77abc21c9d440000fd0210"),name:"Steve Jobs",account_type:"admin",product_id:new ObjectId("5c77ac8e1c9d440000fd0213")},{_id:new ObjectId("5c77abd21c9d440000fd0211"),name:"Allan Turing",account_type:"admin",product_id:new ObjectId("5c77ac8e1c9d440000fd0213")}])'
+            mongo test --eval 'db.products.insertMany([{_id:new ObjectId("5c77918b1c9d440000ea133c"),name:"Websites",price:100},{_id:new ObjectId("5c77ac521c9d440000fd0212"),name:"Mobile App",price:250},{_id:new ObjectId("5c77ac8e1c9d440000fd0213"),name:"Desktop App",price:150}])'
+      # Git
       - checkout
       - run: npm install
+      # Run Test
       - run: npm test
