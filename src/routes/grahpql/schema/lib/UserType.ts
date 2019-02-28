@@ -7,7 +7,11 @@ import _ from "lodash";
 const model = models["users"];
 
 const findUser = async (id: string) => {
-  return await model.findById(id);
+  try {
+    return await model.findById(id);
+  } catch (error) {
+    return [];
+  }
 };
 
 const findUsers = async () => {
@@ -15,7 +19,11 @@ const findUsers = async () => {
 };
 
 const findUsersProducts = async (product_id: string) => {
-  return await model.find({ product_id });
+  try {
+    return await model.find({ product_id });
+  } catch (error) {
+    return [];
+  }
 };
 
 const UserType: GraphQLObjectType = new GraphQLObjectType({
