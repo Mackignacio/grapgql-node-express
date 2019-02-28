@@ -5,15 +5,14 @@ import { load } from "dotenv";
 load();
 
 const app = express();
+const isdev = process.env.NODE_ENV === "development"; // Check if on development mode
 
 app.use(
   "/graphql",
   graphqlHTTP({
     schema,
-    graphiql: process.env.NODE_ENV === "development", // process.env.NODE_ENV is from .env file
+    graphiql: isdev,
   })
 );
 
-const fn = (a: number, b: number) => a + b;
-
-export { app, fn };
+export { app };
