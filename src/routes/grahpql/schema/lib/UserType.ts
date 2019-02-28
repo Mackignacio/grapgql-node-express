@@ -1,6 +1,5 @@
 import { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLList } from "graphql";
 import { ProductType, findProduct } from "./GrahpQLType";
-import { users_data } from "../../mock";
 import models from "../../../../models";
 import _ from "lodash";
 
@@ -54,7 +53,7 @@ const user = {
 const users = {
   type: new GraphQLList(UserType),
   resolve(parents: any, args: any) {
-    return users_data;
+    return findUsers();
   },
 };
 
