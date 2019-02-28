@@ -5,7 +5,7 @@ load();
 
 beforeAll(async () => {
   connect(
-    process.env.MONGODB_CONNECTION || "MONGODB_CONNECTION",
+    process.env.MONGODB_CONNECTION_TEST || "MONGODB_CONNECTION",
     { useNewUrlParser: true }
   );
   connection.once("open", () => console.log("Connected to mongodb database"));
