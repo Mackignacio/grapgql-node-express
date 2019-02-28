@@ -3,7 +3,20 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.15.1
+      - image: circleci/mongo:3.4.4
+    environment:
+      - MONGO_URL: "mongodb://localhost:27017/test"
     steps:
+      # Config
+      - run:
+          name: Configure MongoDB
+          command: |
+            mongo admin --eval 'use test'
+            mongo admin --eval 'db.users.insertMany( [{ item: "card", qty: 15 },{ item: "envelope", qty: 20 },{ item: "stamps" , qty: 30 }])'
+            mongo admin --eval 'show dbs'
+      # mongo admin --eval 'db.createUser({ user: "admin", pwd: "admin", roles: [{ role: "userAdminAnyDatabase", db: "admin" }]})'
+      # Git
       - checkout
       - run: npm install
+      # Run Test
       - run: npm test
