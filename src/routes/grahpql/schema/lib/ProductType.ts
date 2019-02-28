@@ -1,10 +1,13 @@
 import { GraphQLObjectType, GraphQLString, GraphQLID, GraphQLInt, GraphQLList } from "graphql";
 import { UserType, findUsers, findUsersProducts } from "./GrahpQLType";
 import { products_data } from "../../mock";
+import models from "../../../../models";
 import _ from "lodash";
 
-const findProduct = (id: any) => {
-  return _.find(products_data, { id });
+const model = models["products"];
+
+const findProduct = async (id: any) => {
+  return await model.findById(id);
 };
 
 const ProductType: GraphQLObjectType = new GraphQLObjectType({
