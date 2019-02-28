@@ -1,4 +1,20 @@
 import { findUser, findUsersProducts } from "../../../src/routes/grahpql/schema/lib/GrahpQLType";
+import { connect, connection } from "mongoose";
+import { load } from "dotenv";
+load();
+
+beforeAll(async () => {
+  connect(
+    process.env.MONGODB_CONNECTION || "MONGODB_CONNECTION",
+    { useNewUrlParser: true }
+  );
+  connection.once("open", () => console.log("Connected to mongodb database"));
+});
+
+afterAll(async () => {
+  connection.close();
+  connection.once("close", () => console.log("Disconnected to mongodb database"));
+});
 
 test("Find user by ID", () => {
   expect(findUser("1")).toEqual({ name: "Mack Ignacio", account_type: "admin", id: "1", product_id: "1" });
