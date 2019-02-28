@@ -6,7 +6,7 @@ load();
 
 beforeAll(async () => {
   connect(
-    process.env.MONGODB_CONNECTION_TEST || "MONGODB_CONNECTION",
+    process.env.MONGODB_CONNECTION_TEST || process.env.MONGO_URL || "MONGODB_CONNECTION",
     { useNewUrlParser: true }
   );
 });
