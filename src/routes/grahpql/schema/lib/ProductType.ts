@@ -49,4 +49,4 @@ const products = {
   },
 };
 
-export { ProductType, product, products, findProduct };
+export { ProductType, product, products, findProduct, findProducts };
