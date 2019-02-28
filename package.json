@@ -50,7 +50,7 @@
     "graphql": "^14.1.1",
     "graphql-tools": "^4.0.4",
     "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.4.14",
+    "mongoose": "^5.4.16",
     "mongoose-paginate": "^5.0.3",
     "morgan": "^1.9.1",
     "postinstall": "^0.4.2"

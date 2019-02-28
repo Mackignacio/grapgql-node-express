@@ -58,8 +58,8 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-#.env
-.envy
+.env
+
 # next.js build output
 .next
 
